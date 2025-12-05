@@ -69,42 +69,45 @@ reg [7:0]  mag_clipped;              // clipped magnitude
  *  [  0  0  0 ]
  *  [ -1 -2 -1 ]
  */
-initial begin
-    kernel1[0] =  8'd1;
-    kernel1[1] =  8'd0;
-    kernel1[2] = -8'd1;
-    kernel1[3] =  8'd2;
-    kernel1[4] =  8'd0;
-    kernel1[5] = -8'd2;
-    kernel1[6] =  8'd1;
-    kernel1[7] =  8'd0;
-    kernel1[8] = -8'd1;
 
-    kernel2[0] =  8'd1;
-    kernel2[1] =  8'd2;
-    kernel2[2] =  8'd1;
-    kernel2[3] =  8'd0;
-    kernel2[4] =  8'd0;
-    kernel2[5] =  8'd0;
-    kernel2[6] = -8'd1;
-    kernel2[7] = -8'd2;
-    kernel2[8] = -8'd1;
+ // Todo : Fill in the Sobel kernel values
+initial begin
+    kernel1[0] =  ???;
+    kernel1[1] =  ???;
+    kernel1[2] =  ???;
+    kernel1[3] =  ???;
+    kernel1[4] =  ???;
+    kernel1[5] =  ???;
+    kernel1[6] =  ???;
+    kernel1[7] =  ???;
+    kernel1[8] =  ???;
+
+    kernel2[0] =  ???;
+    kernel2[1] =  ???;
+    kernel2[2] =  ???;
+    kernel2[3] =  ???;
+    kernel2[4] =  ???;
+    kernel2[5] =  ???;
+    kernel2[6] =  ???;
+    kernel2[7] =  ???;
+    kernel2[8] =  ???;
 end
 
 ////////////////////////////////////////////////////////////////////////////////
 // FSM
 ////////////////////////////////////////////////////////////////////////////////
 
+// Todo : Complete the missing state transitions
 always @(*) begin
     case (state)
         IDLE:
             next_state = start ? READ_9_PIXELS : IDLE;
 
         READ_9_PIXELS:
-            next_state = (counter == 4'd10) ? MULTIPLY : READ_9_PIXELS;
+            next_state = ???;
 
         READ_3_PIXELS:
-            next_state = (counter == 4'd4) ? MULTIPLY : READ_3_PIXELS;
+            next_state = ???;
 
         MULTIPLY:
             next_state = ACCUMULATE;
@@ -113,14 +116,13 @@ always @(*) begin
             next_state = WRITE;
 
         WRITE:
-            if (x == IMG_WIDTH - 1 && y == IMG_HEIGHT - 1)
+            if (??? && ???)
                 next_state = DONE;
             else
                 next_state = (next_x == 0) ? READ_9_PIXELS : READ_3_PIXELS;
 
         DONE:
             next_state = start ? DONE : IDLE;
-
         default:
             next_state = IDLE;
     endcase
@@ -161,27 +163,30 @@ end
  * The bram0_addr is updated on this clock edge and passed into BRAM on the next
  * cycle, and BRAM has a read latency of 1 cycle. Therefore, we can get the pixel
  * values after 2 cycles.
+ *
  */
+
+// Todo : Complete the missing BRAM0 address assignments.
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         bram0_addr <= 32'd0;
     end else if (state == READ_9_PIXELS) begin
         case (counter)
-            4'd0: bram0_addr <= { (y-1) * IMG_WIDTH + (x-1), 2'b00 };
-            4'd1: bram0_addr <= { (y-1) * IMG_WIDTH + (x  ), 2'b00 };
-            4'd2: bram0_addr <= { (y-1) * IMG_WIDTH + (x+1), 2'b00 };
-            4'd3: bram0_addr <= { (y  ) * IMG_WIDTH + (x-1), 2'b00 };
-            4'd4: bram0_addr <= { (y  ) * IMG_WIDTH + (x  ), 2'b00 };
-            4'd5: bram0_addr <= { (y  ) * IMG_WIDTH + (x+1), 2'b00 };
-            4'd6: bram0_addr <= { (y+1) * IMG_WIDTH + (x-1), 2'b00 };
-            4'd7: bram0_addr <= { (y+1) * IMG_WIDTH + (x  ), 2'b00 };
-            4'd8: bram0_addr <= { (y+1) * IMG_WIDTH + (x+1), 2'b00 };
+            4'd0: bram0_addr <= ???;
+            4'd1: bram0_addr <= ???;
+            4'd2: bram0_addr <= ???;
+            4'd3: bram0_addr <= ???;
+            4'd4: bram0_addr <= ???;
+            4'd5: bram0_addr <= ???;
+            4'd6: bram0_addr <= ???;
+            4'd7: bram0_addr <= ???;
+            4'd8: bram0_addr <= ???;
         endcase
     end else if (state == READ_3_PIXELS) begin
         case (counter)
-            4'd0: bram0_addr <= { (y-1) * IMG_WIDTH + (x+1), 2'b00 };
-            4'd1: bram0_addr <= { (y  ) * IMG_WIDTH + (x+1), 2'b00 };
-            4'd2: bram0_addr <= { (y+1) * IMG_WIDTH + (x+1), 2'b00 };
+            4'd0: bram0_addr <= ???;
+            4'd1: bram0_addr <= ???;
+            4'd2: bram0_addr <= ???;
         endcase
     end else begin
         bram0_addr <= 32'd0;
@@ -211,7 +216,10 @@ end
  * [0] [1] [2]
  * [3] [4] [5]
  * [6] [7] [8]
+ * 
  */
+
+// Todo : Complete the missing assignments for buffer[1] to buffer[7].
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         for (i = 0; i < 9; i = i + 1) begin
@@ -220,20 +228,20 @@ always @(posedge clk or negedge rst_n) begin
     end else if (state == READ_9_PIXELS) begin
         case (counter)
             4'd2:  buffer[0] <= (x == 0 || y == 0)                          ? 8'd0 : bram0_dout[7:0];
-            4'd3:  buffer[1] <= (y == 0)                                    ? 8'd0 : bram0_dout[7:0];
-            4'd4:  buffer[2] <= (x == IMG_WIDTH - 1 || y == 0)              ? 8'd0 : bram0_dout[7:0];
-            4'd5:  buffer[3] <= (x == 0)                                    ? 8'd0 : bram0_dout[7:0];
-            4'd6:  buffer[4] <=                                                      bram0_dout[7:0];
-            4'd7:  buffer[5] <= (x == IMG_WIDTH - 1)                        ? 8'd0 : bram0_dout[7:0];
-            4'd8:  buffer[6] <= (x == 0 || y == IMG_HEIGHT - 1)             ? 8'd0 : bram0_dout[7:0];
-            4'd9:  buffer[7] <= (y == IMG_HEIGHT - 1)                       ? 8'd0 : bram0_dout[7:0];
+            4'd3:  buffer[1] <= ???;
+            4'd4:  buffer[2] <= ???;
+            4'd5:  buffer[3] <= ???;
+            4'd6:  buffer[4] <= ???;
+            4'd7:  buffer[5] <= ???;
+            4'd8:  buffer[6] <= ???;
+            4'd9:  buffer[7] <= ???;
             4'd10: buffer[8] <= (x == IMG_WIDTH - 1 || y == IMG_HEIGHT - 1) ? 8'd0 : bram0_dout[7:0];
         endcase
     end else if (state == READ_3_PIXELS) begin
         case (counter)
-            4'd2: buffer[2] <= (x == IMG_WIDTH - 1 || y == 0)              ? 8'd0 : bram0_dout[7:0];
-            4'd3: buffer[5] <= (x == IMG_WIDTH - 1)                        ? 8'd0 : bram0_dout[7:0];
-            4'd4: buffer[8] <= (x == IMG_WIDTH - 1 || y == IMG_HEIGHT - 1) ? 8'd0 : bram0_dout[7:0];
+            4'd2: buffer[?] <= (x == IMG_WIDTH - 1 || y == 0)              ? 8'd0 : bram0_dout[7:0];
+            4'd3: buffer[?] <= (x == IMG_WIDTH - 1)                        ? 8'd0 : bram0_dout[7:0];
+            4'd4: buffer[?] <= (x == IMG_WIDTH - 1 || y == IMG_HEIGHT - 1) ? 8'd0 : bram0_dout[7:0];
         endcase
     end else if (state == WRITE) begin
         buffer[0] <= buffer[1];
@@ -253,12 +261,13 @@ always @(posedge clk) begin
     end
 end
 
+
 // acc1, acc2
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         acc1 <= 16'd0;
         acc2 <= 16'd0;
-    end else if (state == ACCUMULATE) begin
+    end else if (state == ???) begin
         acc1 <= mul1[0] + mul1[1] + mul1[2]
                 + mul1[3] + mul1[4] + mul1[5]
                 + mul1[6] + mul1[7] + mul1[8];
@@ -285,11 +294,12 @@ end
 // Output Logic
 ////////////////////////////////////////////////////////////////////////////////
 
+// Todo : Complete the missing BRAM1 write enable and address assignments.
 // bram1_we
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         bram1_we <= 4'd0;
-    end else if (state == WRITE) begin
+    end else if (state == ???) begin
         bram1_we <= 4'b1111;
     end else begin
         bram1_we <= 4'd0;
@@ -301,9 +311,9 @@ always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         bram1_addr <= 32'd0;
     end else if (state == WRITE) begin
-        bram1_addr <= { y * IMG_WIDTH + x, 2'b00 };
+        bram1_addr <= ???;
+        end
     end
-end
 
 // bram1_din
 always  @(posedge clk or negedge rst_n) begin
@@ -316,7 +326,9 @@ always  @(posedge clk or negedge rst_n) begin
     end
 end
 
-assign bram0_en = (state == READ_9_PIXELS || state == READ_3_PIXELS);
-assign done = (state == DONE);
+// Todo : Complete the missing bram0_en and done assignments.
+// bram0_en, done
+assign bram0_en = (state == ??? || state == ???) ? 1'b1 : 1'b0;
+assign done = (state == DONE) ? 1'b1 : 1'b0;
 
 endmodule

@@ -15,14 +15,9 @@
 	)
 	(
 		// Users to add ports here
-		output [31:0] bram0_addr,
-		input  [31:0] bram0_dout,
-		output        bram0_en,
 
-		// BRAM1 Ports
-		output [31:0] bram1_addr,
-		output [31:0] bram1_din,
-		output [3:0]  bram1_we,
+
+
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -76,12 +71,8 @@
 		.S_AXI_RRESP(s00_axi_rresp),
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
-		.bram0_addr(bram0_addr),
-		.bram0_dout(bram0_dout),
-		.bram0_en(bram0_en),
-		.bram1_addr(bram1_addr),
-		.bram1_din(bram1_din),
-		.bram1_we(bram1_we)
+
+
 		);
 
 	// Add user logic here

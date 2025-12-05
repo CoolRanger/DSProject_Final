@@ -15,15 +15,9 @@
 	)
 	(
 		// Users to add ports here
-		output [31:0] bram0_addr,
-		input  [31:0] bram0_dout,
-		output        bram0_en,
+		
 
-		// BRAM1 Ports
-		output [31:0] bram1_addr,
-		output [31:0] bram1_din,
-		output [3:0]  bram1_we,
-
+		
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -408,31 +402,10 @@
 	end    
 
 	// Add user logic here
-	wire conv_done;
 
-    conv #(
-	    .IMG_WIDTH(256),
-	    .IMG_HEIGHT(256)
-	) conv_inst (
-	    .clk(S_AXI_ACLK),
-	    .rst_n(S_AXI_ARESETN),
-	    .start(slv_reg0[0]),
-		.done(conv_done),
-		.bram0_addr(bram0_addr),
-		.bram0_dout(bram0_dout),
-		.bram0_en(bram0_en),
-		.bram1_addr(bram1_addr),
-		.bram1_din(bram1_din),
-		.bram1_we(bram1_we)
-	);
 
-   
-    always @(posedge S_AXI_ACLK) begin
-    if (!S_AXI_ARESETN)
-        slv_reg1 <= 0;
-    else
-        slv_reg1 <= {31'b0, conv_done};
-    end
+	// Todo : Complete the missing part.
+    
 
 	// User logic ends
 
