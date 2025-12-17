@@ -1,0 +1,13 @@
+Time resolution is 1 ps
+                   //////////////////////////               
+                   /                        /       |__||  
+                   /  Congratulations !!    /      / O.O  | 
+                   /                        /    /_____   | 
+                   /  Simulation PASS !!    /   /^ ^ ^ \  |
+                   /                        /  |^ ^ ^ ^ |w| 
+                   //////////////////////////   \m___m__|_|
+Total Cycles:      525831
+
+
+$finish called at time : 5258315 ns : File "D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/tests/testfixture.sv" Line 116
+INFO: xsimkernel Simulation Memory Usage: 22752 KB (Peak: 22752 KB), Simulation CPU Usage: 12499 ms

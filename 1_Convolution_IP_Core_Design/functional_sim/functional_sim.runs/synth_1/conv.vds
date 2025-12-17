@@ -1,0 +1,265 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed Dec 17 12:46:31 2025
+# Process ID: 23084
+# Current directory: D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/functional_sim/functional_sim.runs/synth_1
+# Command line: vivado.exe -log conv.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source conv.tcl
+# Log file: D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/functional_sim/functional_sim.runs/synth_1/conv.vds
+# Journal file: D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/functional_sim/functional_sim.runs/synth_1\vivado.jou
+# Running On: lani-desktop, OS: Windows, CPU Frequency: 3394 MHz, CPU Physical cores: 12, Host memory: 17087 MB
+#-----------------------------------------------------------
+source conv.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 472.648 ; gain = 176.047
+Command: synth_design -top conv -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2648
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 923.059 ; gain = 446.457
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'conv' [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:175]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:187]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:230]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:242]
+INFO: [Synth 8-6155] done synthesizing module 'conv' (0#1) [D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/src/conv.v:1]
+WARNING: [Synth 8-7129] Port bram0_dout[31] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[30] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[29] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[28] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[27] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[26] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[25] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[24] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[23] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[22] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[21] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[20] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[19] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[18] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[17] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[16] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[15] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[14] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[13] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[12] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[11] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[10] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[9] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[8] in module conv is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1033.402 ; gain = 556.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1033.402 ; gain = 556.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1033.402 ; gain = 556.801
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1033.402 ; gain = 556.801
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   4 Input   16 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 11    
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 2     
+	   3 Input   32 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input    8 Bit        Muxes := 17    
+	   2 Input    4 Bit        Muxes := 2     
+	   9 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 31    
+	   3 Input    1 Bit        Muxes := 4     
+	  10 Input    1 Bit        Muxes := 10    
+	   4 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port bram0_dout[31] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[30] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[29] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[28] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[27] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[26] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[25] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[24] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[23] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[22] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[21] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[20] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[19] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[18] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[17] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[16] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[15] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[14] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[13] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[12] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[11] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[10] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[9] in module conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram0_dout[8] in module conv is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:34 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:34 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:34 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    48|
+|3     |LUT1   |    13|
+|4     |LUT2   |   140|
+|5     |LUT3   |    41|
+|6     |LUT4   |    64|
+|7     |LUT5   |    55|
+|8     |LUT6   |    61|
+|9     |FDCE   |   141|
+|10    |FDRE   |    83|
+|11    |IBUF   |    11|
+|12    |OBUF   |   102|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   760|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 49 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1252.625 ; gain = 776.023
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1263.309 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 48 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1355.301 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 845abfe4
+INFO: [Common 17-83] Releasing license: Synthesis
+18 Infos, 49 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:44 . Memory (MB): peak = 1355.301 ; gain = 882.652
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1355.301 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/Vivado/DSProject_Final/1_Convolution_IP_Core_Design/functional_sim/functional_sim.runs/synth_1/conv.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file conv_utilization_synth.rpt -pb conv_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 17 12:47:28 2025...
